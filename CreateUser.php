@@ -47,8 +47,10 @@ if($result = $mysqli->query($query))
   else if ($taken == false)
   {
     $q1 = "INSERT INTO Posts (post_id, content, author_id) VALUES ('NULL', '$blogPost', '$username')";
+    //$q2 = "INSERT INTO Users (user_id) VALUES ('$username')";
+    // || ($mysqli->query($q2)))
     //query to check if actually stored
-    if($mysqli->query($q1) === false)
+    if(($mysqli->query($q1) === false )
     {
       echo "Uh-oh, there was an error in publishing your post.";
     }
