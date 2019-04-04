@@ -12,15 +12,23 @@ if ($mysqli->connect_errno)
 }
 
 //
-// obtains user_id from database
+// print user list
 //
-$query = "SELECT user_id FROM Users";
+printf("<br>Current users:<br>");
+$users = "SELECT user_id FROM Users";
 
 //
 // $result is object containing rows of info
 //
-if($result = $mysqli->query($query))
+if($result = $mysqli->query($users))
 {
+  echo "<table>";
+  while ($row = $result->fetch_assoc())
+  {
+    echo "<tr><td>" . $row["user_id"] . "<tr><td>";
+  }
+  echo "</table>";
+  
   //free result set
   $result->free();
 }
