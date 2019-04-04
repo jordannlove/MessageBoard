@@ -33,8 +33,6 @@ if($result = $mysqli->query($users))
   $result->free();
 }
 
-echo "<br>Username: " . $username . "<br>";
-
 //
 // close connection
 //

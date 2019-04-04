@@ -28,12 +28,10 @@ if($result = $mysqli->query($users))
     echo "<tr><td>" . $row["user_id"] . "<tr><td>";
   }
   echo "</table>";
-  
+
   //free result set
   $result->free();
 }
-
-echo "<br>Username: " . $username . "<br>";
 
 //
 // close connection
