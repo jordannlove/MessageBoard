@@ -5,6 +5,33 @@
     <form action="ViewUserPosts.php" method="post" id="f1">
       <select name="Username" form="f1">
         <?php
+        $mysqli = new mysqli("mysql.eecs.ku.edu", "j863l378", "eithai3k", "j863l378");
+        if ($mysqli->connect_errno)
+        {
+          printf("Connect failed: %s\n", $mysqli->connect_error);
+          exit();
+        }
+        else
+        {
+          printf("Current users:");
+          echo "<br>";
+        }
+        $users = "SELECT user_id FROM Users";
+        //
+        // $result is object containing rows of info
+        //
+        if($result = $mysqli->query($users))
+        {
+          while ($row = $result->fetch_assoc())
+          {
+            echo '<option value="';
+            echo $row["user_id"];
+            echo '">';
+            echo $row["user_id"] . '</option>';
+          }
+          //free result set
+          $result->free();
+        }
         ?>
       <br>
       <input type="submit">
