@@ -1,5 +1,5 @@
 <?php
-
+printf("Backend");
 $mysqli = new mysqli("mysql.eecs.ku.edu", "j863l378", "eithai3k", "j863l378");
 
 //
@@ -10,7 +10,7 @@ if ($mysqli->connect_errno)
   printf("Connect failed: %s\n", $mysqli->connect_error);
   exit();
 }
-
+/*
 //
 // print user list
 //
@@ -32,7 +32,7 @@ if($result = $mysqli->query($users))
   //free result set
   $result->free();
 }
-
+*/
 //
 // close connection
 //
